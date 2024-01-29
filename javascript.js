@@ -19,51 +19,44 @@ function playRound(computerChoice, playerChoice){
     }
 }
 
-function game(){
-
-    let playerScore = 0;
-    let computerScore = 0;
-    let counter = 1;
-
-    while (counter <= 5) {
-    console.log(`Game ${counter}`)
-    let computerChoice = getComputerChoice()
-
-    let playerChoice = prompt("Rock, Paper, or Scissors?: ").toLowerCase()
-
-
-    if (playerChoice === "rock"){
-        choiceNum = 0;
-    } else if (playerChoice === "paper"){
-        choiceNum = 1;
-    } else if (playerChoice === "scissors"){
-        choiceNum = 2;
-    } else {
-        console.log("Please choose a valid response!")
-        continue
-    }
-
-    console.log(`The player chose ${playerChoice.toUpperCase()}`);
-    console.log(`The computer chose ${computerChoice[0].toUpperCase()}`);
-
-    let winner = playRound(computerChoice[1], choiceNum)
-
-    if (winner == 0){
+function increaseScore(result) {
+    if (result == 0){
         playerScore += 1
-        counter += 1
-    } else if (winner == 1){
+    } else if (result == 1){
         computerScore += 1
-        counter += 1
-    } else if (winner == 2){
-        continue
+        
     }
-    // console.log(`counter = ${counter}`)
-    }
-    return [computerScore, playerScore]
+    let score = document.querySelector('h5');
+    score.textContent = `Computer: ${computerScore} Player: ${playerScore}`
+
 }
 
-let score = game()
-console.log(`Final Scores: Computer ${score[0]}, Player ${score[1]}`)
+let playerScore = 0;
+let computerScore = 0;
+
+let rockButton = document.querySelector("#rockButton");
+rockButton.addEventListener('click', () => {
+    let computerChoice = getComputerChoice()
+    console.log(computerChoice)
+    let result = playRound(computerChoice[1], 0)
+    increaseScore(result)
+});
+
+let paperButton = document.querySelector("#paperButton");
+paperButton.addEventListener('click', () => {
+    let computerChoice = getComputerChoice()
+    console.log(computerChoice)
+    let result = playRound(computerChoice[1], 1)
+    increaseScore(result)
+});
+
+let scissorButton = document.querySelector("#scissorButton");
+scissorButton.addEventListener('click', () => {
+    let computerChoice = getComputerChoice()
+    console.log(computerChoice)
+    let result = playRound(computerChoice[1], 2)
+    increaseScore(result)
+});
 
 
 
