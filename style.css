@@ -1,9 +1,11 @@
 body {
     display: flex;
-    margin: 100px 0px;
+    flex-direction: column;
     padding: 0px;
+    gap: 10px;
     background-color: rgb(169, 144, 126);
     justify-content: center;
+    align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
@@ -41,10 +43,12 @@ h1 {
     padding: 10px;
 }
 
-.choice {
+.child {
     flex: 1;
-    display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.choice {
     box-shadow: 0px 3px 0px 0px rgb(100, 116, 100);
     border-radius: 10px;
 }
@@ -59,8 +63,22 @@ button {
     cursor: pointer;
 }
 
+button.disabled {
+    width: 100%;
+    background-color: #ABC4AA;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    border: 1px solid rgb(100, 116, 100);
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
 button:active {
     transform: translateY(4px);
+}
+button:active.disabled {
+    transform: translateY(0px);
 }
 
 .container {
@@ -69,4 +87,44 @@ button:active {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+}
+.resultcontainer {
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.resultsPane {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: 2px solid #675D50;
+    text-transform:capitalize;
+    text-align: center;
+    flex-wrap: nowrap;
+    background-color: rgb(243, 222, 186);
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.final {
+    background-color: rgb(171, 196, 170);
+}
+
+.resultsPane p, .resultsPane h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

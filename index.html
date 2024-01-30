@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
+  <div class="gameContainer">
   <div id="game">
     <div class="title">
       <h1>Rock Paper Scissors</h1>
@@ -15,18 +16,30 @@
     <div class="container">
     <h2>click a choice to play:</h2>
     <div id="playerChoice">
-      <div class="choice">
+      <div class="choice child">
         <button type="button" id="rockButton">Rock</button>
       </div>
-      <div class="choice">
+      <div class="choice child">
       <button type="button" id="paperButton">Paper</button>
       </div>
-      <div class="choice">
+      <div class="choice child">
         <button type="button" id="scissorButton">Scissors</button>
       </div>
     </div>
     <h5>Computer: 0  Player: 0</h5>
   </div>
+</div>
+<div id="topLabel" class="resultsPane final hidden">
+  <div class="child">
+  <p>Player</p>
+  </div>
+  <div class="child">
+  <p>|</p>
+  </div>
+  <div class="child">
+  <p>Computer</p>
+</div>
+</div>
 </div>
 </body>
 </html>
